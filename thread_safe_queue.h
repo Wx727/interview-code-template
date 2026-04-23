@@ -2,7 +2,6 @@
 #include <queue>
 #include <mutex>
 #include <condition_variable>
-#include <thread>
 
 template <typename T>
 class ThreadSafeQueue {
@@ -36,21 +35,3 @@ private:
     mutable std::mutex mutex_;
     std::condition_variable cv_;
 };
-
-int main() {
-    ThreadSafeQueue<int> q;
-
-    std::thread producer([&q] {
-        for (int i = 0; i < 5; ++i) q.push(i);
-    });
-
-    std::thread consumer([&q] {
-        for (int i = 0; i < 5; ++i)
-            std::cout << q.pop() << " ";
-        std::cout << "\n";
-    });
-
-    producer.join();
-    consumer.join();
-    return 0;
-}

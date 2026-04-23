@@ -67,18 +67,3 @@ public:
         std::cout << '\n';
     }
 };
-
-int main() {
-    LRUCache<int, std::string> cache(2);
-
-    cache.put(1, "one");
-    cache.put(2, "two");
-    cache.print();
-
-    cache.get(1);
-    cache.put(3, "three");
-    cache.print();
-
-    std::cout << (cache.get(2) == nullptr) << '\n';
-    return 0;
-}

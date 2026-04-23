@@ -73,14 +73,3 @@ private:
         }
     }
 };
-
-int main() {
-    HashMap<int, int> m;
-    m.put(1, 10);
-    m.put(2, 20);
-    int v1, v2;
-    m.get(1, v1);
-    m.get(2, v2);
-    std::cout << v1 << " " << v2 << std::endl; // Output: 10 20
-    return 0;
-}
